@@ -3,6 +3,7 @@ package com.builtbroken.bonetorch.torch;
 import net.minecraft.block.BlockTorch;
 import net.minecraft.block.SoundType;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 
 import net.minecraftforge.client.model.ModelLoader;
@@ -19,6 +20,7 @@ public class BlockBoneTorch extends BlockTorch
     {
         super();
         this.setRegistryName("boneTorch");
+        setCreativeTab(CreativeTabs.DECORATIONS);
         this.setHardness(0.0F);
         this.setLightLevel(0.9375F);
         this.setSoundType(SoundType.WOOD);
