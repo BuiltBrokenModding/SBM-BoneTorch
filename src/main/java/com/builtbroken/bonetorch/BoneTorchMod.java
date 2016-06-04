@@ -2,13 +2,14 @@ package com.builtbroken.bonetorch;
 
 import com.builtbroken.bonetorch.torch.BlockBoneTorch;
 import com.builtbroken.bonetorch.torch.ItemBlockBoneTorch;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.registry.GameRegistry;
-import net.minecraft.block.Block;
+
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
 /**
@@ -23,20 +24,22 @@ public class BoneTorchMod
     public static final String DOMAIN = "bonetorch";
     public static final String PREFIX = DOMAIN + ":";
 
-    Block blockTorch;
+    private BlockBoneTorch blockTorch;
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
         blockTorch = new BlockBoneTorch();
         //TODO add bone sound type
-        GameRegistry.registerBlock(blockTorch, ItemBlockBoneTorch.class, "BTBoneTorch");
+        GameRegistry.register(blockTorch);
+        GameRegistry.register(new ItemBlockBoneTorch(blockTorch), blockTorch.getRegistryName());
+        blockTorch.registerModel();
     }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(blockTorch, 4, 0), "c", "s", 'c', Items.coal, 's', Items.bone));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(blockTorch, 4, 0), "c", "s", 'c', new ItemStack(Items.coal, 1, 1), 's', Items.bone));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(blockTorch, 4, 0), "c", "s", 'c', Items.COAL, 's', Items.BONE));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(blockTorch, 4, 0), "c", "s", 'c', new ItemStack(Items.COAL, 1, 1), 's', Items.BONE));
     }
 }
