@@ -10,6 +10,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
 /**
@@ -33,7 +34,9 @@ public class BoneTorchMod
         //TODO add bone sound type
         GameRegistry.register(blockTorch);
         GameRegistry.register(new ItemBlockBoneTorch(blockTorch), blockTorch.getRegistryName());
-        blockTorch.registerModel();
+        if (event.getSide() == Side.CLIENT) {
+            blockTorch.registerModel();
+        }
     }
 
     @Mod.EventHandler
