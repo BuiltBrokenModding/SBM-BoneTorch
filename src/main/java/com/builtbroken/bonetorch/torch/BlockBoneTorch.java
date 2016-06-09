@@ -20,6 +20,7 @@ public class BlockBoneTorch extends BlockTorch
     {
         super();
         this.setRegistryName("boneTorch");
+        this.setUnlocalizedName("bonetorch");
         setCreativeTab(CreativeTabs.DECORATIONS);
         this.setHardness(0.0F);
         this.setLightLevel(0.9375F);
