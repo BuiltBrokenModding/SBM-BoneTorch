@@ -1,13 +1,14 @@
 {
   "result": {
-    "item": "bonetorch:bonetorch"
+    "item": "bonetorch:bonetorch",
+    "count": 4
   },
   "group": "bonetorch:bonetorch",
   "pattern": [
     "c",
     "s"
   ],
-  "type": "forge:ore_shaped",
+  "type": "minecraft:crafting_shaped",
   "key": {
     "c": {
       "item": "minecraft:coal",
