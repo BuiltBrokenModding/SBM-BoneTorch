@@ -1,5 +1,6 @@
 package com.builtbroken.bonetorch.torch;
 
+import com.builtbroken.bonetorch.BoneTorchMod;
 import net.minecraft.block.BlockTorch;
 import net.minecraft.block.SoundType;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -19,8 +20,8 @@ public class BlockBoneTorch extends BlockTorch
     public BlockBoneTorch()
     {
         super();
-        this.setRegistryName("boneTorch");
-        this.setUnlocalizedName("bonetorch");
+        this.setRegistryName(BoneTorchMod.PREFIX + "boneTorch");
+        this.setUnlocalizedName(BoneTorchMod.PREFIX + "bonetorch");
         setCreativeTab(CreativeTabs.DECORATIONS);
         this.setHardness(0.0F);
         this.setLightLevel(0.9375F);

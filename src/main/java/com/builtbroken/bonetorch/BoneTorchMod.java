@@ -2,10 +2,8 @@ package com.builtbroken.bonetorch;
 
 import com.builtbroken.bonetorch.torch.BlockBoneTorch;
 import com.builtbroken.bonetorch.torch.ItemBlockBoneTorch;
-
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -30,11 +28,10 @@ public class BoneTorchMod
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-        blockTorch = new BlockBoneTorch();
-        //TODO add bone sound type
-        GameRegistry.register(blockTorch);
+        GameRegistry.register(blockTorch = new BlockBoneTorch());
         GameRegistry.register(new ItemBlockBoneTorch(blockTorch), blockTorch.getRegistryName());
-        if (event.getSide() == Side.CLIENT) {
+        if (event.getSide() == Side.CLIENT)
+        {
             blockTorch.registerModel();
         }
     }
