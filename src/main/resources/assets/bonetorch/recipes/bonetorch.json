@@ -1,0 +1,21 @@
+{
+  "result": {
+    "item": "bonetorch:bonetorch"
+  },
+  "group": "bonetorch:bonetorch",
+  "pattern": [
+    "c",
+    "s"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "c": {
+      "item": "minecraft:coal",
+      "data": 0
+    },
+    "s": {
+      "type": "forge:ore_dict",
+      "ore": "bone"
+    }
+  }
+}

@@ -1,18 +1,13 @@
 package com.builtbroken.bonetorch;
 
 import com.builtbroken.bonetorch.torch.BlockBoneTorch;
-import com.builtbroken.bonetorch.torch.ItemBlockBoneTorch;
 import net.minecraft.block.Block;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.item.ItemBlock;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.oredict.ShapedOreRecipe;
 
 /**
  * Simple mod to add a bone torch to MC. Idea was spawned from running out of
@@ -32,7 +27,7 @@ public class BoneTorchMod
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event)
     {
-        event.getRegistry().register(new ItemBlockBoneTorch(blockTorch).setRegistryName(blockTorch.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(blockTorch).setRegistryName(blockTorch.getRegistryName()));
     }
 
     @SubscribeEvent
@@ -45,25 +40,5 @@ public class BoneTorchMod
     public static void registerAllModels(ModelRegistryEvent event)
     {
         blockTorch.registerModel();
-    }
-
-    @Mod.EventHandler
-    public void postInit(RegistryEvent.Register<IRecipe> event)
-    {
-        event.getRegistry().register(new ShapedOreRecipe(
-                new ResourceLocation(DOMAIN, blockTorch.getRegistryName() + ".0"),
-                new ItemStack(blockTorch, 4, 0),
-                "c",
-                "s",
-                'c', Items.COAL,
-                's', Items.BONE));
-
-        event.getRegistry().register(new ShapedOreRecipe(
-                new ResourceLocation(DOMAIN, blockTorch.getRegistryName() + ".1"),
-                new ItemStack(blockTorch, 4, 0),
-                "c",
-                "s",
-                'c', new ItemStack(Items.COAL, 1, 1),
-                's', Items.BONE));
     }
 }
