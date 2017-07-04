@@ -1,6 +1,6 @@
 {
   "parent": "block/torch",
   "textures": {
-    "torch": "bonetorch:blocks/boneTorch"
+    "torch": "bonetorch:blocks/bone_torch"
   }
 }
