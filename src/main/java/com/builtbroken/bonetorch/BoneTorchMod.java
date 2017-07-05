@@ -1,7 +1,6 @@
 package com.builtbroken.bonetorch;
 
 import com.builtbroken.bonetorch.torch.BlockBoneTorch;
-import com.builtbroken.bonetorch.torch.ItemBlockBoneTorch;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
@@ -28,8 +27,7 @@ public class BoneTorchMod
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-        GameRegistry.register(blockTorch = new BlockBoneTorch());
-        GameRegistry.register(new ItemBlockBoneTorch(blockTorch), blockTorch.getRegistryName());
+        GameRegistry.registerBlock(blockTorch = new BlockBoneTorch());
         if (event.getSide() == Side.CLIENT)
         {
             blockTorch.registerModel();
@@ -39,7 +37,7 @@ public class BoneTorchMod
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(blockTorch, 4, 0), "c", "s", 'c', Items.COAL, 's', Items.BONE));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(blockTorch, 4, 0), "c", "s", 'c', new ItemStack(Items.COAL, 1, 1), 's', Items.BONE));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(blockTorch, 4, 0), "c", "s", 'c', Items.coal, 's', Items.bone));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(blockTorch, 4, 0), "c", "s", 'c', new ItemStack(Items.coal, 1, 1), 's', Items.bone));
     }
 }
