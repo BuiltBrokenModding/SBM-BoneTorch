@@ -17,9 +17,10 @@ buildscript {
 }
 
 plugins {
-  id 'com.matthewprenger.cursegradle' version '1.0.1'
+  id "com.matthewprenger.cursegradle" version "1.0.9"
   id 'net.saliman.cobertura' version '2.2.5'
   id 'com.github.kt3k.coveralls' version '2.0.1'
+  id "se.bjurr.gitchangelog.git-changelog-gradle-plugin" version "1.50"
 }
 
 apply from: 'https://raw.githubusercontent.com/BuiltBrokenModding/BuiltBrokenScripts/buildScripts/index/index.gradle'
@@ -31,7 +32,7 @@ apply plugin: 'jacoco'
 dependencies 
 {
     testCompile 'junit:junit:4.11'
-    compile "dev.builtbroken.voltzengine:VoltzEngine:1.7.10-0.+:deobf-dev"
+    //compile "dev.builtbroken.voltzengine:VoltzEngine:1.7.10-1.+:deobf-dev"
 }
 
 jacocoTestReport {
