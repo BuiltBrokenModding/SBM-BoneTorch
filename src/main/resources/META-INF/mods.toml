@@ -10,14 +10,14 @@ version="0.0.1" #mandatory
 displayName="[SBM] BoneTorch" #mandatory
 description='''Simple mod to create torches from bones''' #mandatory
 
-[[dependencies.merpig]]
+[[dependencies.bonetorch]]
     modId="forge"
     mandatory=true
     versionRange="[25,)"
     ordering="NONE"
     side="BOTH"
 
-[[dependencies.merpig]]
+[[dependencies.bonetorch]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.13.2]"
