@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=east": { "model": "bonetorch:block/wall_bonetorch" },
+        "facing=south": { "model": "bonetorch:block/wall_bonetorch", "y": 90 },
+        "facing=west": { "model": "bonetorch:block/wall_bonetorch", "y": 180 },
+        "facing=north": { "model": "bonetorch:block/wall_bonetorch", "y": 270 }
+    }
+}
