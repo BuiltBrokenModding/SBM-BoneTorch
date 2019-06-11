@@ -6,7 +6,7 @@ import com.builtbroken.bonetorch.torch.BlockBoneTorchWall;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemWallOrFloor;
+import net.minecraft.item.WallOrFloorItem;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -31,7 +31,7 @@ public class BoneTorchMod
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event)
     {
-        event.getRegistry().register(new ItemWallOrFloor(blockTorch, blockTorchWall, new Item.Properties().group(ItemGroup.DECORATIONS)).setRegistryName(blockTorch.getRegistryName()));
+        event.getRegistry().register(new WallOrFloorItem(blockTorch, blockTorchWall, new Item.Properties().group(ItemGroup.DECORATIONS)).setRegistryName(blockTorch.getRegistryName()));
     }
 
     @SubscribeEvent
