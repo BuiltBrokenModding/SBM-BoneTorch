@@ -20,7 +20,7 @@ public class BlockBoneTorch extends BlockTorch
     public BlockBoneTorch()
     {
         this.setRegistryName(BoneTorchMod.PREFIX + "bonetorch");
-        this.setUnlocalizedName(BoneTorchMod.PREFIX + "bonetorch");
+        this.setTranslationKey(BoneTorchMod.PREFIX + "bonetorch");
         this.setCreativeTab(CreativeTabs.DECORATIONS);
         this.setHardness(0.0F);
         this.setLightLevel(0.9375F);
