@@ -11,10 +11,10 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 @Mod.EventBusSubscriber(modid=BoneTorchMod.DOMAIN, bus=Bus.MOD, value=Dist.CLIENT)
 public class ClientRegistrar
 {
-	@SubscribeEvent
-	public static void registerItems(FMLClientSetupEvent event)
-	{
-		RenderTypeLookup.setRenderLayer(BoneTorchMod.blockTorch, RenderType.cutout());
-		RenderTypeLookup.setRenderLayer(BoneTorchMod.blockTorchWall, RenderType.cutout());
-	}
+    @SubscribeEvent
+    public static void registerItems(FMLClientSetupEvent event)
+    {
+        RenderTypeLookup.setRenderLayer(BoneTorchMod.blockTorch, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(BoneTorchMod.blockTorchWall, RenderType.getCutout());
+    }
 }

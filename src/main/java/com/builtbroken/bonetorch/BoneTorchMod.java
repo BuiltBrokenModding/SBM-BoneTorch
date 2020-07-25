@@ -1,16 +1,20 @@
 package com.builtbroken.bonetorch;
 
-import com.builtbroken.bonetorch.torch.BlockBoneTorch;
-import com.builtbroken.bonetorch.torch.BlockBoneTorchWall;
-
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.TorchBlock;
+import net.minecraft.block.WallTorchBlock;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.WallOrFloorItem;
+import net.minecraft.particles.ParticleTypes;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
+import net.minecraftforge.registries.ObjectHolder;
 
 /**
  * Simple mod to add a bone torch to MC. Idea was spawned from running out of
@@ -25,8 +29,10 @@ public class BoneTorchMod
     public static final String DOMAIN = "bonetorch";
     public static final String PREFIX = DOMAIN + ":";
 
-    public static BlockBoneTorch blockTorch;
-    public static BlockBoneTorchWall blockTorchWall;
+    @ObjectHolder(PREFIX + "bonetorch")
+    public static TorchBlock blockTorch;
+    @ObjectHolder(PREFIX + "wall_bonetorch")
+    public static WallTorchBlock blockTorchWall;
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event)
@@ -37,7 +43,7 @@ public class BoneTorchMod
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event)
     {
-        event.getRegistry().register(blockTorch = new BlockBoneTorch());
-        event.getRegistry().register(blockTorchWall = new BlockBoneTorchWall());
+        event.getRegistry().register(new TorchBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.0F).setLightLevel(state -> 14).sound(SoundType.WOOD), ParticleTypes.FLAME).setRegistryName(new ResourceLocation(DOMAIN, "bonetorch")));
+        event.getRegistry().register(new WallTorchBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.0F).setLightLevel(state -> 14).sound(SoundType.WOOD), ParticleTypes.FLAME).setRegistryName(new ResourceLocation(DOMAIN, "wall_bonetorch")));
     }
 }

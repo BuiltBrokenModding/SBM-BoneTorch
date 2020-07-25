@@ -13,12 +13,12 @@ apply plugin: 'eclipse'
 
 version = '0.0.1'
 group = 'bonetorch'
-archivesBaseName = 'SBM-BoneTorch-1.15.2'
+archivesBaseName = 'SBM-BoneTorch-1.16.1'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
 minecraft {
-    mappings channel: 'snapshot', version: '20200211-1.15.1'
+    mappings channel: 'snapshot', version: '20200707-1.16.1'
 	
     runs {
         client {
@@ -46,7 +46,7 @@ minecraft {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.15.2-31.1.1'
+    minecraft 'net.minecraftforge:forge:1.16.1-32.0.70'
 }
 
 jar {
