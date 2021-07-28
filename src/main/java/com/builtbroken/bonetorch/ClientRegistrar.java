@@ -1,7 +1,7 @@
 package com.builtbroken.bonetorch;
 
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -14,7 +14,7 @@ public class ClientRegistrar
     @SubscribeEvent
     public static void registerItems(FMLClientSetupEvent event)
     {
-        RenderTypeLookup.setRenderLayer(BoneTorchMod.blockTorch, RenderType.cutout());
-        RenderTypeLookup.setRenderLayer(BoneTorchMod.blockTorchWall, RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(BoneTorchMod.blockTorch, RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(BoneTorchMod.blockTorchWall, RenderType.cutout());
     }
 }
