@@ -14,7 +14,7 @@ public class ClientRegistrar
     @SubscribeEvent
     public static void registerItems(FMLClientSetupEvent event)
     {
-        RenderTypeLookup.setRenderLayer(BoneTorchMod.blockTorch, RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(BoneTorchMod.blockTorchWall, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(BoneTorchMod.blockTorch, RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(BoneTorchMod.blockTorchWall, RenderType.cutout());
     }
 }

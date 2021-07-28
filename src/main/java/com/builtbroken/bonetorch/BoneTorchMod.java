@@ -16,6 +16,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.registries.ObjectHolder;
 
+import net.minecraft.block.AbstractBlock;
+
 /**
  * Simple mod to add a bone torch to MC. Idea was spawned from running out of
  * torches in the nether. Where the player may still be able to get coal and bones
@@ -37,13 +39,13 @@ public class BoneTorchMod
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event)
     {
-        event.getRegistry().register(new WallOrFloorItem(blockTorch, blockTorchWall, new Item.Properties().group(ItemGroup.DECORATIONS)).setRegistryName(blockTorch.getRegistryName()));
+        event.getRegistry().register(new WallOrFloorItem(blockTorch, blockTorchWall, new Item.Properties().tab(ItemGroup.TAB_DECORATIONS)).setRegistryName(blockTorch.getRegistryName()));
     }
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event)
     {
-        event.getRegistry().register(new TorchBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.0F).setLightLevel(state -> 14).sound(SoundType.WOOD), ParticleTypes.FLAME).setRegistryName(new ResourceLocation(DOMAIN, "bonetorch")));
-        event.getRegistry().register(new WallTorchBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.0F).setLightLevel(state -> 14).sound(SoundType.WOOD), ParticleTypes.FLAME).setRegistryName(new ResourceLocation(DOMAIN, "wall_bonetorch")));
+        event.getRegistry().register(new TorchBlock(AbstractBlock.Properties.of(Material.DECORATION).noCollission().strength(0.0F).lightLevel(state -> 14).sound(SoundType.WOOD), ParticleTypes.FLAME).setRegistryName(new ResourceLocation(DOMAIN, "bonetorch")));
+        event.getRegistry().register(new WallTorchBlock(AbstractBlock.Properties.of(Material.DECORATION).noCollission().strength(0.0F).lightLevel(state -> 14).sound(SoundType.WOOD), ParticleTypes.FLAME).setRegistryName(new ResourceLocation(DOMAIN, "wall_bonetorch")));
     }
 }
