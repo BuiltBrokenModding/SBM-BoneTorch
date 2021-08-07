@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "bonetorch:item/bone_torch_bandolier"
+  }
+}
