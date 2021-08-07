@@ -7,7 +7,7 @@ license="MIT License https://github.com/BuiltBrokenModding/SBM-BoneTorch/blob/1.
 
 [[mods]] #mandatory
 modId="bonetorch" #mandatory
-version="0.0.1" #mandatory
+version="${file.jarVersion}" #mandatory
 displayName="[SBM] BoneTorch" #mandatory
 description='''Simple mod to create torches from bones''' #mandatory
 

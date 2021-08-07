@@ -8,21 +8,22 @@ buildscript {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
     }
 }
+
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 
 version = '0.0.1'
 group = 'bonetorch'
-archivesBaseName = 'SBM-BoneTorch-1.16.4'
+archivesBaseName = 'SBM-BoneTorch-1.16.5'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
 minecraft {
-    mappings channel: 'snapshot', version: '20201028-1.16.3'
+    mappings channel: 'snapshot', version: '20210309-1.16.5'
 	
     runs {
         client {
-            workingDirectory project.file('run')
+            workingDirectory project.file('run/client')
             property 'forge.logging.console.level', 'debug'
 
             mods {
@@ -33,8 +34,9 @@ minecraft {
         }
 
         server {
-            workingDirectory project.file('run')
+            workingDirectory project.file('run/server')
             property 'forge.logging.console.level', 'debug'
+			args '-nogui'
 
             mods {
                 bonetorch {
@@ -53,9 +55,9 @@ jar {
     manifest {
         attributes(["Specification-Title": "SBM-BoneTorch",
                     "Specification-Vendor": "Built Broken Modding",
-                    "Specification-Version": "0.0.1",
+                    "Specification-Version": "${version}",
                     "Implementation-Title": "SBM-BoneTorch",
-                    "Implementation-Version": "0.0.1",
+                    "Implementation-Version": "${version}",
                     "Implementation-Vendor" :"Built Broken Modding",
                     "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")],)
     }
