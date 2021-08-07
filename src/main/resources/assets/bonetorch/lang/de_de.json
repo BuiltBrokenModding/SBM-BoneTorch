@@ -1,4 +1,5 @@
 {
     "block.bonetorch.bonetorch": "Knochenfackel",
-    "block.bonetorch.wall_bonetorch": "Knochenfackel"
+    "block.bonetorch.wall_bonetorch": "Knochenfackel",
+    "item.bonetorch.bone_torch_bandolier": "Knochenfackel-Gurt"
 }

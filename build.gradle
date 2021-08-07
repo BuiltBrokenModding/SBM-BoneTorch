@@ -12,7 +12,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 
-version = '0.0.1'
+version = '0.0.2'
 group = 'bonetorch'
 archivesBaseName = 'SBM-BoneTorch-1.16.5'
 
@@ -47,8 +47,17 @@ minecraft {
     }
 }
 
+repositories {
+    maven {
+        url "https://www.cursemaven.com"
+    }
+}
+
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.4-35.0.1'
+    minecraft 'net.minecraftforge:forge:1.16.5-36.2.2'
+	
+    implementation fg.deobf("curse.maven:silent-lib-242998:3385768") //torch bandolier dependency
+    implementation fg.deobf("curse.maven:torch-bandolier-299337:3398768")
 }
 
 jar {

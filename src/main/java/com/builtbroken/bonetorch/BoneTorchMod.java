@@ -1,5 +1,7 @@
 package com.builtbroken.bonetorch;
 
+import com.builtbroken.bonetorch.compat.torchbandolier.TorchBandolierCompat;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.TorchBlock;
@@ -12,6 +14,7 @@ import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.registries.ObjectHolder;
@@ -26,24 +29,27 @@ import net.minecraftforge.registries.ObjectHolder;
 @Mod.EventBusSubscriber(bus=Bus.MOD)
 public class BoneTorchMod
 {
-    public static final String DOMAIN = "bonetorch";
-    public static final String PREFIX = DOMAIN + ":";
+	public static final String DOMAIN = "bonetorch";
+	public static final String PREFIX = DOMAIN + ":";
 
-    @ObjectHolder(PREFIX + "bonetorch")
-    public static TorchBlock blockTorch;
-    @ObjectHolder(PREFIX + "wall_bonetorch")
-    public static WallTorchBlock blockTorchWall;
+	@ObjectHolder(PREFIX + "bonetorch")
+	public static TorchBlock blockTorch;
+	@ObjectHolder(PREFIX + "wall_bonetorch")
+	public static WallTorchBlock blockTorchWall;
 
-    @SubscribeEvent
-    public static void registerItems(RegistryEvent.Register<Item> event)
-    {
-        event.getRegistry().register(new WallOrFloorItem(blockTorch, blockTorchWall, new Item.Properties().group(ItemGroup.DECORATIONS)).setRegistryName(blockTorch.getRegistryName()));
-    }
+	@SubscribeEvent
+	public static void registerItems(RegistryEvent.Register<Item> event)
+	{
+		event.getRegistry().register(new WallOrFloorItem(blockTorch, blockTorchWall, new Item.Properties().group(ItemGroup.DECORATIONS)).setRegistryName(blockTorch.getRegistryName()));
 
-    @SubscribeEvent
-    public static void registerBlocks(RegistryEvent.Register<Block> event)
-    {
-        event.getRegistry().register(new TorchBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.0F).setLightLevel(state -> 14).sound(SoundType.WOOD), ParticleTypes.FLAME).setRegistryName(new ResourceLocation(DOMAIN, "bonetorch")));
-        event.getRegistry().register(new WallTorchBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.0F).setLightLevel(state -> 14).sound(SoundType.WOOD), ParticleTypes.FLAME).setRegistryName(new ResourceLocation(DOMAIN, "wall_bonetorch")));
-    }
+		if(ModList.get().isLoaded("torchbandolier"))
+			TorchBandolierCompat.register(event);
+	}
+
+	@SubscribeEvent
+	public static void registerBlocks(RegistryEvent.Register<Block> event)
+	{
+		event.getRegistry().register(new TorchBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.0F).setLightLevel(state -> 14).sound(SoundType.WOOD), ParticleTypes.FLAME).setRegistryName(new ResourceLocation(DOMAIN, "bonetorch")));
+		event.getRegistry().register(new WallTorchBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.0F).setLightLevel(state -> 14).sound(SoundType.WOOD), ParticleTypes.FLAME).setRegistryName(new ResourceLocation(DOMAIN, "wall_bonetorch")));
+	}
 }
