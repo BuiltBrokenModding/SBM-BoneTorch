@@ -13,13 +13,13 @@ apply plugin: 'eclipse'
 
 version = '0.0.2'
 group = 'bonetorch'
-archivesBaseName = 'SBM-BoneTorch-1.17.1'
+archivesBaseName = 'SBM-BoneTorch-1.18'
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(16)
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 
 minecraft {
-    mappings channel: 'official', version: '1.17.1'
+    mappings channel: 'official', version: '1.18'
 	
     runs {
         client {
@@ -54,10 +54,10 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.17.1-37.0.13'
-	
-    implementation fg.deobf("curse.maven:silent-lib-242998:3400030") //torch bandolier dependency
-    implementation fg.deobf("curse.maven:torch-bandolier-299337:3404771")
+    minecraft 'net.minecraftforge:forge:1.18-38.0.15'
+
+    implementation fg.deobf("curse.maven:silent-lib-242998:3543045") //torch bandolier dependency
+    implementation fg.deobf("curse.maven:torch-bandolier-299337:3550328")
 }
 
 jar {
