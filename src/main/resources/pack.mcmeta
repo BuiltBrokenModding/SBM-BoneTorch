@@ -1,6 +1,7 @@
 {
     "pack": {
-        "description": "SBM-BoneTorch resources",
-        "pack_format": 8
+        "description": "SBM-BoneTorch resources & data",
+        "pack_format": 9,
+        "forge:data_pack_format": 10
     }
 }

@@ -1,26 +1,26 @@
-modLoader="javafml" #mandatory
-loaderVersion="[38,)" #mandatory
+modLoader="javafml"
+loaderVersion="[41,)"
 issueTrackerURL="https://github.com/BuiltBrokenModding/SBM-BoneTorch/issues"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/sbm-bone-torch"
 authors="BuiltBrokenModding"
-license="MIT License https://github.com/BuiltBrokenModding/SBM-BoneTorch/blob/1.18/LICENSE"
+license="MIT License https://github.com/BuiltBrokenModding/SBM-BoneTorch/blob/1.19/LICENSE"
 
-[[mods]] #mandatory
-modId="bonetorch" #mandatory
-version="${file.jarVersion}" #mandatory
-displayName="[SBM] BoneTorch" #mandatory
-description='''Simple mod to create torches from bones''' #mandatory
+[[mods]]
+modId="bonetorch"
+version="${file.jarVersion}"
+displayName="[SBM] BoneTorch"
+description='''Simple mod to create torches from bones'''
 
 [[dependencies.bonetorch]]
     modId="forge"
     mandatory=true
-    versionRange="[38,)"
+    versionRange="[41,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.bonetorch]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.18,1.19)"
+    versionRange="[1.19,1.20)"
     ordering="NONE"
     side="BOTH"
