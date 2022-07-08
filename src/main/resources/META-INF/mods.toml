@@ -14,7 +14,7 @@ description='''Simple mod to create torches from bones'''
 [[dependencies.bonetorch]]
     modId="forge"
     mandatory=true
-    versionRange="[41,)"
+    versionRange="[41.0.64,)"
     ordering="NONE"
     side="BOTH"
 
