@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[41,)"
+loaderVersion="[44,)"
 issueTrackerURL="https://github.com/BuiltBrokenModding/SBM-BoneTorch/issues"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/sbm-bone-torch"
 authors="BuiltBrokenModding"
@@ -14,13 +14,13 @@ description='''Simple mod to create torches from bones'''
 [[dependencies.bonetorch]]
     modId="forge"
     mandatory=true
-    versionRange="[41.0.64,)"
+    versionRange="[44.0.6,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.bonetorch]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19,1.20)"
+    versionRange="[1.19.3,1.20)"
     ordering="NONE"
     side="BOTH"
