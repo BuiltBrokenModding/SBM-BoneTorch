@@ -3,18 +3,13 @@ package com.builtbroken.bonetorch;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.item.CreativeModeTab.TabVisibility;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.StandingAndWallBlockItem;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.TorchBlock;
 import net.minecraft.world.level.block.WallTorchBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
-import net.minecraftforge.event.CreativeModeTabEvent;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -37,8 +32,8 @@ public class BoneTorchMod
 	public static final String DOMAIN = "bonetorch";
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, DOMAIN);
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, DOMAIN);
-	public static final RegistryObject<TorchBlock> BONETORCH = BLOCKS.register("bonetorch", () -> new TorchBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(0.0F).lightLevel(state -> 14).sound(SoundType.WOOD), ParticleTypes.FLAME));
-	public static final RegistryObject<WallTorchBlock> WALL_BONETORCH = BLOCKS.register("wall_bonetorch", () -> new WallTorchBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(0.0F).lightLevel(state -> 14).sound(SoundType.WOOD), ParticleTypes.FLAME));
+	public static final RegistryObject<TorchBlock> BONETORCH = BLOCKS.register("bonetorch", () -> new TorchBlock(BlockBehaviour.Properties.of().noCollission().strength(0.0F).lightLevel(state -> 14).sound(SoundType.WOOD), ParticleTypes.FLAME));
+	public static final RegistryObject<WallTorchBlock> WALL_BONETORCH = BLOCKS.register("wall_bonetorch", () -> new WallTorchBlock(BlockBehaviour.Properties.of().noCollission().strength(0.0F).lightLevel(state -> 14).sound(SoundType.WOOD), ParticleTypes.FLAME));
 	public static final RegistryObject<StandingAndWallBlockItem> BONETORCH_ITEM = ITEMS.register("bonetorch", () -> new StandingAndWallBlockItem(BONETORCH.get(), WALL_BONETORCH.get(), new Item.Properties(), Direction.DOWN));
 
 	public BoneTorchMod()
@@ -50,9 +45,9 @@ public class BoneTorchMod
 	}
 
 	@SubscribeEvent
-	public static void onCreativeModeTabBuildContents(CreativeModeTabEvent.BuildContents event)
+	public static void onCreativeModeTabBuildContents(BuildCreativeModeTabContentsEvent event)
 	{
-		if (event.getTab()==CreativeModeTabs.FUNCTIONAL_BLOCKS)
+		if (event.getTabKey()==CreativeModeTabs.FUNCTIONAL_BLOCKS)
 			event.getEntries().putAfter(new ItemStack(Items.REDSTONE_TORCH), new ItemStack(BONETORCH_ITEM.get()), TabVisibility.PARENT_AND_SEARCH_TABS);
 	}
 }
