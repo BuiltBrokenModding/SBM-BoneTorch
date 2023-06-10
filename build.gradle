@@ -5,7 +5,7 @@ buildscript {
     }
 
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+		classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '[6.0,6.2)', changing: true
     }
 }
 
@@ -14,13 +14,17 @@ apply plugin: 'eclipse'
 
 version = '0.0.2'
 group = 'bonetorch'
-archivesBaseName = 'SBM-BoneTorch-1.19.3'
+
+base {
+	archivesName = 'SBM-BoneTorch-1.20'
+}
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 
 minecraft {
-    mappings channel: 'official', version: '1.19.3'
+    mappings channel: 'official', version: '1.20'
+	copyIdeResources = true
 	
     runs {
         client {
@@ -55,20 +59,23 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.19.3-44.0.6'
+	minecraft 'net.minecraftforge:forge:1.20-46.0.12'
 
     //implementation fg.deobf("curse.maven:silent-lib-242998:3543045") //torch bandolier dependency
     //implementation fg.deobf("curse.maven:torch-bandolier-299337:3550328")
 }
 
-jar {
+tasks.named('jar', Jar).configure {
     manifest {
         attributes(["Specification-Title": "SBM-BoneTorch",
                     "Specification-Vendor": "Built Broken Modding",
                     "Specification-Version": "0.0.1",
                     "Implementation-Title": "SBM-BoneTorch",
                     "Implementation-Version": "0.0.1",
-                    "Implementation-Vendor" :"Built Broken Modding",
-                    "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")],)
+                    "Implementation-Vendor" :"Built Broken Modding"],)
     }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
 }
