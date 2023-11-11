@@ -1,54 +1,34 @@
-buildscript {
-    repositories {
-        maven { url = 'https://maven.minecraftforge.net' }
-        mavenCentral()
-    }
-
-    dependencies {
-		classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '[6.0,6.2)', changing: true
-    }
+plugins {
+    id 'java-library'
+    id 'eclipse'
+    id 'idea'
+    id 'net.neoforged.gradle.userdev' version '[7.0,7.1)'
+//	id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
-
-apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'eclipse'
 
 version = '0.0.2'
 group = 'bonetorch'
 
 base {
-	archivesName = 'SBM-BoneTorch-1.20'
+	archivesName = 'SBM-BoneTorch-1.20.2'
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 
-minecraft {
-    mappings channel: 'official', version: '1.20'
-	copyIdeResources = true
-	
-    runs {
-        client {
-            workingDirectory project.file('run/client')
-            property 'forge.logging.console.level', 'debug'
+runs {
+    configureEach {
+        systemProperty 'forge.logging.console.level', 'debug'
+        modSource project.sourceSets.main
+    }
 
-            mods {
-                bonetorch {
-                    source sourceSets.main
-                }
-            }
-        }
+    client {
+        workingDirectory project.file('run/client')
+    }
 
-        server {
-            workingDirectory project.file('run/server')
-            property 'forge.logging.console.level', 'debug'
-			args '-nogui'
-
-            mods {
-                bonetorch {
-                    source sourceSets.main
-                }
-            }
-        }
+    server {
+        workingDirectory project.file('run/server')
+        programArgument '-nogui'
     }
 }
 
@@ -59,10 +39,10 @@ repositories {
 }
 
 dependencies {
-	minecraft 'net.minecraftforge:forge:1.20-46.0.12'
+    implementation 'net.neoforged:neoforge:20.2.47-beta'
 
-    //implementation fg.deobf("curse.maven:silent-lib-242998:3543045") //torch bandolier dependency
-    //implementation fg.deobf("curse.maven:torch-bandolier-299337:3550328")
+    //implementation "curse.maven:silent-lib-242998:3543045" //torch bandolier dependency
+    //implementation "curse.maven:torch-bandolier-299337:3550328"
 }
 
 tasks.named('jar', Jar).configure {
