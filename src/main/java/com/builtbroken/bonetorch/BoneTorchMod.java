@@ -8,7 +8,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.StandingAndWallBlockItem;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.TorchBlock;
@@ -19,9 +18,9 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.common.Mod.EventBusSubscriber.Bus;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import net.neoforged.neoforge.registries.ForgeRegistries;
-import net.neoforged.neoforge.registries.RegistryObject;
 
 /**
  * Simple mod to add a bone torch to MC. Idea was spawned from running out of
@@ -34,11 +33,11 @@ import net.neoforged.neoforge.registries.RegistryObject;
 public class BoneTorchMod
 {
 	public static final String DOMAIN = "bonetorch";
-	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, DOMAIN);
-	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, DOMAIN);
-	public static final RegistryObject<TorchBlock> BONETORCH = BLOCKS.register("bonetorch", () -> new TorchBlock(BlockBehaviour.Properties.copy(Blocks.TORCH).sound(SoundType.WOOD), ParticleTypes.FLAME));
-	public static final RegistryObject<WallTorchBlock> WALL_BONETORCH = BLOCKS.register("wall_bonetorch", () -> new WallTorchBlock(BlockBehaviour.Properties.copy(Blocks.TORCH).sound(SoundType.WOOD), ParticleTypes.FLAME));
-	public static final RegistryObject<StandingAndWallBlockItem> BONETORCH_ITEM = ITEMS.register("bonetorch", () -> new StandingAndWallBlockItem(BONETORCH.get(), WALL_BONETORCH.get(), new Item.Properties(), Direction.DOWN));
+	public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(DOMAIN);
+	public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(DOMAIN);
+	public static final DeferredBlock<TorchBlock> BONETORCH = BLOCKS.register("bonetorch", () -> new TorchBlock(BlockBehaviour.Properties.copy(Blocks.TORCH).sound(SoundType.WOOD), ParticleTypes.FLAME));
+	public static final DeferredBlock<WallTorchBlock> WALL_BONETORCH = BLOCKS.register("wall_bonetorch", () -> new WallTorchBlock(BlockBehaviour.Properties.copy(Blocks.TORCH).sound(SoundType.WOOD), ParticleTypes.FLAME));
+	public static final DeferredItem<StandingAndWallBlockItem> BONETORCH_ITEM = ITEMS.register("bonetorch", () -> new StandingAndWallBlockItem(BONETORCH.get(), WALL_BONETORCH.get(), new Item.Properties(), Direction.DOWN));
 
 	public BoneTorchMod(IEventBus modEventBus)
 	{
