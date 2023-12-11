@@ -35,8 +35,8 @@ public class BoneTorchMod
 	public static final String DOMAIN = "bonetorch";
 	public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(DOMAIN);
 	public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(DOMAIN);
-	public static final DeferredBlock<TorchBlock> BONETORCH = BLOCKS.register("bonetorch", () -> new TorchBlock(BlockBehaviour.Properties.copy(Blocks.TORCH).sound(SoundType.WOOD), ParticleTypes.FLAME));
-	public static final DeferredBlock<WallTorchBlock> WALL_BONETORCH = BLOCKS.register("wall_bonetorch", () -> new WallTorchBlock(BlockBehaviour.Properties.copy(Blocks.TORCH).sound(SoundType.WOOD), ParticleTypes.FLAME));
+	public static final DeferredBlock<TorchBlock> BONETORCH = BLOCKS.register("bonetorch", () -> new TorchBlock(ParticleTypes.FLAME, BlockBehaviour.Properties.ofLegacyCopy(Blocks.TORCH).sound(SoundType.WOOD)));
+	public static final DeferredBlock<WallTorchBlock> WALL_BONETORCH = BLOCKS.register("wall_bonetorch", () -> new WallTorchBlock(ParticleTypes.FLAME, BlockBehaviour.Properties.ofLegacyCopy(Blocks.TORCH).sound(SoundType.WOOD)));
 	public static final DeferredItem<StandingAndWallBlockItem> BONETORCH_ITEM = ITEMS.register("bonetorch", () -> new StandingAndWallBlockItem(BONETORCH.get(), WALL_BONETORCH.get(), new Item.Properties(), Direction.DOWN));
 
 	public BoneTorchMod(IEventBus modEventBus)
