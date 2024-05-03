@@ -16,6 +16,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.Mod.EventBusSubscriber;
 import net.neoforged.fml.common.Mod.EventBusSubscriber.Bus;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -29,14 +30,14 @@ import net.neoforged.neoforge.registries.DeferredRegister;
  * Created by Dark on 7/25/2015.
  */
 @Mod(BoneTorchMod.DOMAIN)
-@Mod.EventBusSubscriber(bus=Bus.MOD)
+@EventBusSubscriber(bus=Bus.MOD)
 public class BoneTorchMod
 {
 	public static final String DOMAIN = "bonetorch";
 	public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(DOMAIN);
 	public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(DOMAIN);
 	public static final DeferredBlock<TorchBlock> BONETORCH = BLOCKS.register("bonetorch", () -> new TorchBlock(ParticleTypes.FLAME, BlockBehaviour.Properties.ofLegacyCopy(Blocks.TORCH).sound(SoundType.WOOD)));
-	public static final DeferredBlock<WallTorchBlock> WALL_BONETORCH = BLOCKS.register("wall_bonetorch", () -> new WallTorchBlock(ParticleTypes.FLAME, BlockBehaviour.Properties.ofLegacyCopy(Blocks.TORCH).sound(SoundType.WOOD)));
+	public static final DeferredBlock<WallTorchBlock> WALL_BONETORCH = BLOCKS.register("wall_bonetorch", () -> new WallTorchBlock(ParticleTypes.FLAME, BlockBehaviour.Properties.ofLegacyCopy(Blocks.TORCH).sound(SoundType.WOOD).lootFrom(BONETORCH)));
 	public static final DeferredItem<StandingAndWallBlockItem> BONETORCH_ITEM = ITEMS.register("bonetorch", () -> new StandingAndWallBlockItem(BONETORCH.get(), WALL_BONETORCH.get(), new Item.Properties(), Direction.DOWN));
 
 	public BoneTorchMod(IEventBus modEventBus)

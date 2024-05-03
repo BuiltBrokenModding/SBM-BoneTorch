@@ -1,0 +1,10 @@
+{
+  "pack": {
+    "description": "SBM-BoneTorch resources & data",
+    "pack_format": 22,
+    "supported_formats": [
+      0,
+      2147483647
+    ]
+  }
+}
