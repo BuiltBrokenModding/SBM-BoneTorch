@@ -24,11 +24,20 @@ public class RecipeGenerator extends RecipeProvider
 	protected final void buildRecipes(RecipeOutput recipeOutput)
 	{
 		ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BoneTorchMod.BONETORCH_ITEM, 4)
-		.pattern("c")
-		.pattern("s")
-		.define('c', ItemTags.COALS)
-		.define('s', Tags.Items.BONES)
+		.pattern("C")
+		.pattern("B")
+		.define('C', ItemTags.COALS)
+		.define('B', Tags.Items.BONES)
 		.unlockedBy("has_bone", has(Tags.Items.BONES))
+		.save(recipeOutput);
+		ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BoneTorchMod.SOUL_BONETORCH_ITEM, 4)
+		.pattern("C")
+		.pattern("B")
+		.pattern("S")
+		.define('C', ItemTags.COALS)
+		.define('B', Tags.Items.BONES)
+		.define('S', ItemTags.SOUL_FIRE_BASE_BLOCKS)
+		.unlockedBy("has_soul_sand", has(ItemTags.SOUL_FIRE_BASE_BLOCKS))
 		.save(recipeOutput);
 	}
 }
