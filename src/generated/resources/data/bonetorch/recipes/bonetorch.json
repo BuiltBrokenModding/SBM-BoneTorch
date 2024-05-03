@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "c": {
+      "tag": "minecraft:coals"
+    },
+    "s": {
+      "tag": "c:bones"
+    }
+  },
+  "pattern": [
+    "c",
+    "s"
+  ],
+  "result": {
+    "count": 4,
+    "id": "bonetorch:bonetorch"
+  }
+}
