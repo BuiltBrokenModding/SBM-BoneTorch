@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "bonetorch:soul_bonetorch"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "bonetorch:blocks/soul_bonetorch"
+}
