@@ -71,8 +71,8 @@ repositories {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.19.4-45.1.0'
 
-    //implementation fg.deobf("curse.maven:silent-lib-242998:3543045") //torch bandolier dependency
-    //implementation fg.deobf("curse.maven:torch-bandolier-299337:3550328")
+    implementation fg.deobf("curse.maven:silent-lib-242998:4540305") //torch bandolier dependency
+    implementation fg.deobf("curse.maven:torch-bandolier-299337:4557757")
 }
 
 jar {

@@ -1,5 +1,7 @@
 package com.builtbroken.bonetorch;
 
+import com.builtbroken.bonetorch.compat.torchbandolier.TorchBandolierCompat;
+
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.item.CreativeModeTab.TabVisibility;
@@ -16,6 +18,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
@@ -47,6 +50,9 @@ public class BoneTorchMod
 
 		BLOCKS.register(modEventBus);
 		ITEMS.register(modEventBus);
+
+		if (ModList.get().isLoaded("torchbandolier"))
+			TorchBandolierCompat.init();
 	}
 
 	@SubscribeEvent
@@ -54,5 +60,8 @@ public class BoneTorchMod
 	{
 		if (event.getTab()==CreativeModeTabs.FUNCTIONAL_BLOCKS)
 			event.getEntries().putAfter(new ItemStack(Items.REDSTONE_TORCH), new ItemStack(BONETORCH_ITEM.get()), TabVisibility.PARENT_AND_SEARCH_TABS);
+
+		if (ModList.get().isLoaded("torchbandolier"))
+			TorchBandolierCompat.addToCreativeTab(event);
 	}
 }
