@@ -9,15 +9,15 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.StandingAndWallBlockItem;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.TorchBlock;
 import net.minecraft.world.level.block.WallTorchBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
 import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -31,14 +31,14 @@ import net.minecraftforge.registries.RegistryObject;
  * Created by Dark on 7/25/2015.
  */
 @Mod(BoneTorchMod.DOMAIN)
-@Mod.EventBusSubscriber(bus=Bus.MOD)
+@EventBusSubscriber(bus=Bus.MOD)
 public class BoneTorchMod
 {
 	public static final String DOMAIN = "bonetorch";
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, DOMAIN);
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, DOMAIN);
-	public static final RegistryObject<TorchBlock> BONETORCH = BLOCKS.register("bonetorch", () -> new TorchBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(0.0F).lightLevel(state -> 14).sound(SoundType.WOOD), ParticleTypes.FLAME));
-	public static final RegistryObject<WallTorchBlock> WALL_BONETORCH = BLOCKS.register("wall_bonetorch", () -> new WallTorchBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(0.0F).lightLevel(state -> 14).sound(SoundType.WOOD), ParticleTypes.FLAME));
+	public static final RegistryObject<TorchBlock> BONETORCH = BLOCKS.register("bonetorch", () -> new TorchBlock(BlockBehaviour.Properties.copy(Blocks.TORCH), ParticleTypes.FLAME));
+	public static final RegistryObject<WallTorchBlock> WALL_BONETORCH = BLOCKS.register("wall_bonetorch", () -> new WallTorchBlock(BlockBehaviour.Properties.copy(Blocks.TORCH).lootFrom(BONETORCH), ParticleTypes.FLAME));
 	public static final RegistryObject<StandingAndWallBlockItem> BONETORCH_ITEM = ITEMS.register("bonetorch", () -> new StandingAndWallBlockItem(BONETORCH.get(), WALL_BONETORCH.get(), new Item.Properties(), Direction.DOWN));
 
 	public BoneTorchMod()

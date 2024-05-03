@@ -13,6 +13,14 @@ archivesBaseName = 'SBM-BoneTorch-1.19.4'
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 
+processResources {
+	exclude ".cache"
+}
+
+sourceSets.main.resources {
+	srcDir 'src/generated/resources' //include generated files
+}
+
 minecraft {
     mappings channel: 'parchment', version: '2023.06.26-1.19.4'
 	
@@ -39,6 +47,18 @@ minecraft {
                 }
             }
         }
+
+		data {
+			workingDirectory project.file('run/data')
+			property 'forge.logging.console.level', 'debug'
+			args '--mod', 'bonetorch', '--all', '--output', file('src/generated/resources/')
+
+			mods {
+				bonetorch {
+					source sourceSets.main
+				}
+			}
+		}
     }
 }
 
@@ -56,6 +76,8 @@ dependencies {
 }
 
 jar {
+	exclude('com/builtbroken/bonetorch/datagen/**') //exclude files from the built jar that are only used to generate the assets & data
+
     manifest {
         attributes(["Specification-Title": "SBM-BoneTorch",
                     "Specification-Vendor": "Built Broken Modding",
@@ -64,4 +86,9 @@ jar {
                     "Implementation-Version": "${version}",
                     "Implementation-Vendor" :"Built Broken Modding"],)
     }
+}
+
+tasks.withType(JavaCompile).configureEach {
+	options.encoding = 'UTF-8'
+    options.release = 17
 }
