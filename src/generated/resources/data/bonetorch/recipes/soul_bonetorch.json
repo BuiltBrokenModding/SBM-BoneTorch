@@ -7,15 +7,19 @@
     },
     "C": {
       "tag": "minecraft:coals"
+    },
+    "S": {
+      "tag": "minecraft:soul_fire_base_blocks"
     }
   },
   "pattern": [
     "C",
-    "B"
+    "B",
+    "S"
   ],
   "result": {
     "count": 4,
-    "item": "bonetorch:bonetorch"
+    "item": "bonetorch:soul_bonetorch"
   },
   "show_notification": true
 }

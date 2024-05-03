@@ -29,5 +29,14 @@ public class RecipeGenerator extends RecipeProvider
 		.define('s', Tags.Items.BONES)
 		.unlockedBy("has_bone", has(Tags.Items.BONES))
 		.save(writer);
+		ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BoneTorchMod.SOUL_BONETORCH_ITEM.get(), 4)
+		.pattern("C")
+		.pattern("B")
+		.pattern("S")
+		.define('C', ItemTags.COALS)
+		.define('B', Tags.Items.BONES)
+		.define('S', ItemTags.SOUL_FIRE_BASE_BLOCKS)
+		.unlockedBy("has_soul_sand", has(ItemTags.SOUL_FIRE_BASE_BLOCKS))
+		.save(writer);
 	}
 }

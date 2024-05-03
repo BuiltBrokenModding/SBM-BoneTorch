@@ -43,6 +43,9 @@ public class BoneTorchMod
 	public static final RegistryObject<TorchBlock> BONETORCH = BLOCKS.register("bonetorch", () -> new TorchBlock(BlockBehaviour.Properties.copy(Blocks.TORCH), ParticleTypes.FLAME));
 	public static final RegistryObject<WallTorchBlock> WALL_BONETORCH = BLOCKS.register("wall_bonetorch", () -> new WallTorchBlock(BlockBehaviour.Properties.copy(Blocks.TORCH).lootFrom(BONETORCH), ParticleTypes.FLAME));
 	public static final RegistryObject<StandingAndWallBlockItem> BONETORCH_ITEM = ITEMS.register("bonetorch", () -> new StandingAndWallBlockItem(BONETORCH.get(), WALL_BONETORCH.get(), new Item.Properties(), Direction.DOWN));
+	public static final RegistryObject<TorchBlock> SOUL_BONETORCH = BLOCKS.register("soul_bonetorch", () -> new TorchBlock(BlockBehaviour.Properties.copy(Blocks.SOUL_TORCH), ParticleTypes.SOUL_FIRE_FLAME));
+	public static final RegistryObject<WallTorchBlock> WALL_SOUL_BONETORCH = BLOCKS.register("wall_soul_bonetorch", () -> new WallTorchBlock(BlockBehaviour.Properties.copy(Blocks.SOUL_TORCH).lootFrom(SOUL_BONETORCH), ParticleTypes.SOUL_FIRE_FLAME));
+	public static final RegistryObject<StandingAndWallBlockItem> SOUL_BONETORCH_ITEM = ITEMS.register("soul_bonetorch", () -> new StandingAndWallBlockItem(SOUL_BONETORCH.get(), WALL_SOUL_BONETORCH.get(), new Item.Properties(), Direction.DOWN));
 
 	public BoneTorchMod()
 	{
@@ -52,16 +55,23 @@ public class BoneTorchMod
 		ITEMS.register(modEventBus);
 
 		if (ModList.get().isLoaded("torchbandolier"))
+		{
 			TorchBandolierCompat.init();
+		}
 	}
 
 	@SubscribeEvent
 	public static void onCreativeModeTabBuildContents(CreativeModeTabEvent.BuildContents event)
 	{
-		if (event.getTab()==CreativeModeTabs.FUNCTIONAL_BLOCKS)
+		if (event.getTab() == CreativeModeTabs.FUNCTIONAL_BLOCKS)
+		{
 			event.getEntries().putAfter(new ItemStack(Items.REDSTONE_TORCH), new ItemStack(BONETORCH_ITEM.get()), TabVisibility.PARENT_AND_SEARCH_TABS);
+			event.getEntries().putAfter(new ItemStack(BONETORCH_ITEM.get()), new ItemStack(SOUL_BONETORCH_ITEM.get()), TabVisibility.PARENT_AND_SEARCH_TABS);
+		}
 
 		if (ModList.get().isLoaded("torchbandolier"))
+		{
 			TorchBandolierCompat.addToCreativeTab(event);
+		}
 	}
 }

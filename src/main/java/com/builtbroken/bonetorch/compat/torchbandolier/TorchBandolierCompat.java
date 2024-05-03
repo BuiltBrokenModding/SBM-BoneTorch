@@ -10,6 +10,7 @@ import net.silentchaos512.torchbandolier.item.TorchBandolierItem;
 public class TorchBandolierCompat
 {
 	public static final RegistryObject<TorchBandolierItem> BONETORCH_BANDOLIER = BoneTorchMod.ITEMS.register("bone_torch_bandolier", () -> new TorchBandolierItem(BoneTorchMod.BONETORCH.get()));
+	public static final RegistryObject<TorchBandolierItem> SOUL_BONETORCH_BANDOLIER = BoneTorchMod.ITEMS.register("soul_bone_torch_bandolier", () -> new TorchBandolierItem(BoneTorchMod.SOUL_BONETORCH.get()));
 
 	public static void init() {}
 
@@ -18,6 +19,7 @@ public class TorchBandolierCompat
 		if (event.getTab() == CreativeModeTabs.TOOLS_AND_UTILITIES)
 		{
 			event.accept(BONETORCH_BANDOLIER.get().createFullStack());
+			event.accept(SOUL_BONETORCH_BANDOLIER.get().createFullStack());
 		}
 	}
 }

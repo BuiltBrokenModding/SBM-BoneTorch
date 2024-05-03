@@ -1,0 +1,7 @@
+{
+    "parent": "block/wall_torch",
+    "render_type": "minecraft:cutout",
+    "textures": {
+        "torch": "bonetorch:block/soul_bone_torch"
+    }
+}
