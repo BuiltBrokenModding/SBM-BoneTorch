@@ -48,9 +48,9 @@ tasks.named('jar', Jar).configure {
     manifest {
         attributes(["Specification-Title": "SBM-BoneTorch",
                     "Specification-Vendor": "Built Broken Modding",
-                    "Specification-Version": "0.0.1",
+                    "Specification-Version": "${version}",
                     "Implementation-Title": "SBM-BoneTorch",
-                    "Implementation-Version": "0.0.1",
+                    "Implementation-Version": "${version}",
                     "Implementation-Vendor" :"Built Broken Modding"],)
     }
 }
