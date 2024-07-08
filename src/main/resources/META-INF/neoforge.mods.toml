@@ -14,7 +14,7 @@ description='''Simple mod to create torches from bones'''
 [[dependencies.bonetorch]]
     modId="neoforge"
     type="required"
-    versionRange="[21,)"
+    versionRange="[21.0.76-beta,)"
     ordering="NONE"
     side="BOTH"
 

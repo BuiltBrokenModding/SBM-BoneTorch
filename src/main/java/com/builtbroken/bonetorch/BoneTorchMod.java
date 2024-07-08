@@ -53,8 +53,8 @@ public class BoneTorchMod
 	{
 		if (event.getTabKey()==CreativeModeTabs.FUNCTIONAL_BLOCKS)
 		{
-			event.getEntries().putAfter(new ItemStack(Items.REDSTONE_TORCH), new ItemStack(BONETORCH_ITEM.get()), TabVisibility.PARENT_AND_SEARCH_TABS);
-			event.getEntries().putAfter(new ItemStack(BONETORCH_ITEM.get()), new ItemStack(SOUL_BONETORCH_ITEM.get()), TabVisibility.PARENT_AND_SEARCH_TABS);
+			event.insertAfter(new ItemStack(Items.REDSTONE_TORCH), new ItemStack(BONETORCH_ITEM.get()), TabVisibility.PARENT_AND_SEARCH_TABS);
+			event.insertAfter(new ItemStack(BONETORCH_ITEM.get()), new ItemStack(SOUL_BONETORCH_ITEM.get()), TabVisibility.PARENT_AND_SEARCH_TABS);
 		}
 	}
 }
