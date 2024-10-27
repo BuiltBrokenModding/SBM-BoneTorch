@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
-      "tag": "c:bones"
-    },
-    "C": {
-      "tag": "minecraft:coals"
-    },
-    "S": {
-      "tag": "minecraft:soul_fire_base_blocks"
-    }
+    "B": "#c:bones",
+    "C": "#minecraft:coals",
+    "S": "#minecraft:soul_fire_base_blocks"
   },
   "pattern": [
     "C",

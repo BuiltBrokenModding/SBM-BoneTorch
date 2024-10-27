@@ -9,7 +9,7 @@ version = '1.0.2'
 group = 'bonetorch'
 
 base {
-	archivesName = 'SBM-BoneTorch-1.21.1'
+	archivesName = 'SBM-BoneTorch-1.21.3'
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
@@ -51,7 +51,7 @@ repositories {
 }
 
 dependencies {
-	implementation 'net.neoforged:neoforge:21.1.47'
+	implementation 'net.neoforged:neoforge:21.3.4-beta'
 
     //implementation "curse.maven:silent-lib-242998:3543045" //torch bandolier dependency
     //implementation "curse.maven:torch-bandolier-299337:3550328"

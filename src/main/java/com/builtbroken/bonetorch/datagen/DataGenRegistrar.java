@@ -35,7 +35,7 @@ public class DataGenRegistrar
 		CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
 		generator.addProvider(event.includeServer(), new LootTableProvider(output, Set.of(), List.of(new SubProviderEntry(BlockLootTableGenerator::new, LootContextParamSets.BLOCK)), lookupProvider));
-		generator.addProvider(event.includeServer(), new RecipeGenerator(output, lookupProvider));
+		generator.addProvider(event.includeServer(), new RecipeGenerator.Runner(output, lookupProvider));
 		generator.addProvider(true, new PackMetadataGenerator(output)
 				.add(PackMetadataSection.TYPE, new PackMetadataSection(Component.literal("SBM-BoneTorch resources & data"),
 						DetectedVersion.BUILT_IN.getPackVersion(PackType.CLIENT_RESOURCES),

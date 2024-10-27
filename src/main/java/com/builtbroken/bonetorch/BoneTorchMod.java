@@ -4,7 +4,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.item.CreativeModeTab.TabVisibility;
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.StandingAndWallBlockItem;
@@ -35,12 +34,12 @@ public class BoneTorchMod
 	public static final String DOMAIN = "bonetorch";
 	public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(DOMAIN);
 	public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(DOMAIN);
-	public static final DeferredBlock<TorchBlock> BONETORCH = BLOCKS.register("bonetorch", () -> new TorchBlock(ParticleTypes.FLAME, BlockBehaviour.Properties.ofLegacyCopy(Blocks.TORCH)));
-	public static final DeferredBlock<WallTorchBlock> WALL_BONETORCH = BLOCKS.register("wall_bonetorch", () -> new WallTorchBlock(ParticleTypes.FLAME, BlockBehaviour.Properties.ofLegacyCopy(Blocks.TORCH).lootFrom(BONETORCH)));
-	public static final DeferredItem<StandingAndWallBlockItem> BONETORCH_ITEM = ITEMS.register("bonetorch", () -> new StandingAndWallBlockItem(BONETORCH.get(), WALL_BONETORCH.get(), new Item.Properties(), Direction.DOWN));
-	public static final DeferredBlock<TorchBlock> SOUL_BONETORCH = BLOCKS.register("soul_bonetorch", () -> new TorchBlock(ParticleTypes.SOUL_FIRE_FLAME, BlockBehaviour.Properties.ofLegacyCopy(Blocks.SOUL_TORCH)));
-	public static final DeferredBlock<WallTorchBlock> WALL_SOUL_BONETORCH = BLOCKS.register("wall_soul_bonetorch", () -> new WallTorchBlock(ParticleTypes.SOUL_FIRE_FLAME, BlockBehaviour.Properties.ofLegacyCopy(Blocks.SOUL_TORCH).lootFrom(SOUL_BONETORCH)));
-	public static final DeferredItem<StandingAndWallBlockItem> SOUL_BONETORCH_ITEM = ITEMS.register("soul_bonetorch", () -> new StandingAndWallBlockItem(SOUL_BONETORCH.get(), WALL_SOUL_BONETORCH.get(), new Item.Properties(), Direction.DOWN));
+	public static final DeferredBlock<TorchBlock> BONETORCH = BLOCKS.registerBlock("bonetorch", p -> new TorchBlock(ParticleTypes.FLAME, p), BlockBehaviour.Properties.ofLegacyCopy(Blocks.TORCH));
+	public static final DeferredBlock<WallTorchBlock> WALL_BONETORCH = BLOCKS.registerBlock("wall_bonetorch", p -> new WallTorchBlock(ParticleTypes.FLAME, p.overrideLootTable(BONETORCH.get().getLootTable()).overrideDescription(BONETORCH.get().getDescriptionId())), BlockBehaviour.Properties.ofLegacyCopy(Blocks.TORCH));
+	public static final DeferredItem<StandingAndWallBlockItem> BONETORCH_ITEM = ITEMS.registerItem("bonetorch", p -> new StandingAndWallBlockItem(BONETORCH.get(), WALL_BONETORCH.get(), Direction.DOWN, p));
+	public static final DeferredBlock<TorchBlock> SOUL_BONETORCH = BLOCKS.registerBlock("soul_bonetorch", p -> new TorchBlock(ParticleTypes.SOUL_FIRE_FLAME, p), BlockBehaviour.Properties.ofLegacyCopy(Blocks.SOUL_TORCH));
+	public static final DeferredBlock<WallTorchBlock> WALL_SOUL_BONETORCH = BLOCKS.registerBlock("wall_soul_bonetorch", p -> new WallTorchBlock(ParticleTypes.SOUL_FIRE_FLAME, p.overrideLootTable(SOUL_BONETORCH.get().getLootTable()).overrideDescription(SOUL_BONETORCH.get().getDescriptionId())), BlockBehaviour.Properties.ofLegacyCopy(Blocks.SOUL_TORCH));
+	public static final DeferredItem<StandingAndWallBlockItem> SOUL_BONETORCH_ITEM = ITEMS.registerItem("soul_bonetorch", p -> new StandingAndWallBlockItem(SOUL_BONETORCH.get(), WALL_SOUL_BONETORCH.get(), Direction.DOWN, p));
 
 	public BoneTorchMod(IEventBus modEventBus)
 	{
