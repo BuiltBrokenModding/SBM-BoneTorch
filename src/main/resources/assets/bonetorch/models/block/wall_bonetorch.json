@@ -1,5 +1,5 @@
 {
-    "parent": "block/wall_torch",
+    "parent": "bonetorch:block/template_torch_wall",
     "render_type": "minecraft:cutout",
     "textures": {
         "torch": "bonetorch:block/bone_torch"
