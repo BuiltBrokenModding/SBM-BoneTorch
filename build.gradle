@@ -9,7 +9,7 @@ version = '1.0.3'
 group = 'bonetorch'
 
 base {
-	archivesName = 'SBM-BoneTorch-1.21.3'
+	archivesName = 'SBM-BoneTorch-1.21.4'
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
@@ -38,7 +38,7 @@ runs {
         argument '-nogui'
     }
 
-    data {
+    clientData {
 		workingDirectory project.file('run/data')
 		arguments.addAll '--mod', 'bonetorch', '--all', '--output', file('src/generated/resources/').getAbsolutePath()
 	}
@@ -51,7 +51,7 @@ repositories {
 }
 
 dependencies {
-	implementation 'net.neoforged:neoforge:21.3.4-beta'
+	implementation 'net.neoforged:neoforge:21.4.12-beta'
 
     //implementation "curse.maven:silent-lib-242998:3543045" //torch bandolier dependency
     //implementation "curse.maven:torch-bandolier-299337:3550328"
