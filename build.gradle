@@ -2,14 +2,14 @@ plugins {
     id 'java-library'
     id 'eclipse'
     id 'idea'
-    id 'net.neoforged.gradle.userdev' version '7.0.+'
+	id 'net.neoforged.moddev' version '2.0.82'
 }
 
 version = '1.0.3'
 group = 'bonetorch'
 
 base {
-	archivesName = 'SBM-BoneTorch-1.21.4'
+	archivesName = 'SBM-BoneTorch-1.21.5'
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
@@ -23,24 +23,35 @@ sourceSets.main.resources {
 	srcDir 'src/generated/resources' //include generated files
 }
 
-runs {
-    configureEach {
-        systemProperty 'forge.logging.console.level', 'debug'
-        modSource project.sourceSets.main
-    }
+neoForge {
+	version = "21.5.62-beta"
 
-    client {
-        workingDirectory project.file('run/client')
-    }
+	runs {
+		configureEach {
+			logLevel = org.slf4j.event.Level.DEBUG
+			gameDirectory = project.file("run/" + name)
+			ideName = "SBMBoneTorch " + ideName.get()
+		}
 
-    server {
-        workingDirectory project.file('run/server')
-        argument '-nogui'
-    }
+		client {
+			client()
+		}
 
-    clientData {
-		workingDirectory project.file('run/data')
-		arguments.addAll '--mod', 'bonetorch', '--all', '--output', file('src/generated/resources/').getAbsolutePath()
+		server {
+			server()
+			programArgument('-nogui')
+		}
+
+		data {
+			clientData()
+			programArguments.addAll('--mod', 'bonetorch', '--all', '--output', file('src/generated/resources/').getAbsolutePath())
+		}
+	}
+
+	mods {
+		bonetorch {
+			sourceSet(sourceSets.main)
+		}
 	}
 }
 
@@ -51,8 +62,6 @@ repositories {
 }
 
 dependencies {
-	implementation 'net.neoforged:neoforge:21.4.12-beta'
-
     //implementation "curse.maven:silent-lib-242998:3543045" //torch bandolier dependency
     //implementation "curse.maven:torch-bandolier-299337:3550328"
 }
@@ -73,4 +82,11 @@ tasks.named('jar', Jar).configure {
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 	options.release = 21
+}
+
+idea {
+	module {
+		downloadSources = true
+		downloadJavadoc = true
+	}
 }
