@@ -5,11 +5,11 @@ plugins {
 	id 'net.neoforged.moddev' version '2.0.82'
 }
 
-version = '1.0.3'
+version = '1.0.4'
 group = 'bonetorch'
 
 base {
-	archivesName = 'SBM-BoneTorch-1.21.5'
+	archivesName = 'SBM-BoneTorch-1.21.6'
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
@@ -24,7 +24,7 @@ sourceSets.main.resources {
 }
 
 neoForge {
-	version = "21.5.62-beta"
+	version = "21.6.6-beta"
 
 	runs {
 		configureEach {

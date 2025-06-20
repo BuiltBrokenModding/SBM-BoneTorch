@@ -14,7 +14,6 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.fml.common.EventBusSubscriber.Bus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -28,7 +27,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
  * Created by Dark on 7/25/2015.
  */
 @Mod(BoneTorchMod.DOMAIN)
-@EventBusSubscriber(bus=Bus.MOD)
+@EventBusSubscriber
 public class BoneTorchMod
 {
 	public static final String DOMAIN = "bonetorch";
