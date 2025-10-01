@@ -14,6 +14,7 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.common.Tags;
 
 public class RecipeGenerator extends RecipeProvider
@@ -35,6 +36,15 @@ public class RecipeGenerator extends RecipeProvider
 		.define('C', ItemTags.COALS)
 		.define('B', Tags.Items.BONES)
 		.unlockedBy("has_bone", has(Tags.Items.BONES))
+		.save(output);
+		ShapedRecipeBuilder.shaped(items, RecipeCategory.DECORATIONS, BoneTorchMod.COPPER_BONETORCH_ITEM, 4)
+		.pattern("N")
+		.pattern("C")
+		.pattern("B")
+		.define('N', Items.COPPER_NUGGET)
+		.define('C', ItemTags.COALS)
+		.define('B', Tags.Items.BONES)
+		.unlockedBy("has_copper_nugget", has(Items.COPPER_NUGGET))
 		.save(output);
 		ShapedRecipeBuilder.shaped(items, RecipeCategory.DECORATIONS, BoneTorchMod.SOUL_BONETORCH_ITEM, 4)
 		.pattern("C")

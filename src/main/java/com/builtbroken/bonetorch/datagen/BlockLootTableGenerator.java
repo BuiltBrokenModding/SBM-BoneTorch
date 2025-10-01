@@ -21,6 +21,7 @@ public class BlockLootTableGenerator extends BlockLootSubProvider
 	public void generate()
 	{
 		dropSelf(BoneTorchMod.BONETORCH.get());
+		dropSelf(BoneTorchMod.COPPER_BONETORCH.get());
 		dropSelf(BoneTorchMod.SOUL_BONETORCH.get());
 	}
 

@@ -36,6 +36,9 @@ public class BoneTorchMod
 	public static final DeferredBlock<TorchBlock> BONETORCH = BLOCKS.registerBlock("bonetorch", p -> new TorchBlock(ParticleTypes.FLAME, p), BlockBehaviour.Properties.ofLegacyCopy(Blocks.TORCH));
 	public static final DeferredBlock<WallTorchBlock> WALL_BONETORCH = BLOCKS.registerBlock("wall_bonetorch", p -> new WallTorchBlock(ParticleTypes.FLAME, p.overrideLootTable(BONETORCH.get().getLootTable()).overrideDescription(BONETORCH.get().getDescriptionId())), BlockBehaviour.Properties.ofLegacyCopy(Blocks.TORCH));
 	public static final DeferredItem<StandingAndWallBlockItem> BONETORCH_ITEM = ITEMS.registerItem("bonetorch", p -> new StandingAndWallBlockItem(BONETORCH.get(), WALL_BONETORCH.get(), Direction.DOWN, p.useBlockDescriptionPrefix()));
+	public static final DeferredBlock<TorchBlock> COPPER_BONETORCH = BLOCKS.registerBlock("copper_bonetorch", p -> new TorchBlock(ParticleTypes.COPPER_FIRE_FLAME, p), BlockBehaviour.Properties.ofLegacyCopy(Blocks.COPPER_TORCH));
+	public static final DeferredBlock<WallTorchBlock> WALL_COPPER_BONETORCH = BLOCKS.registerBlock("wall_copper_bonetorch", p -> new WallTorchBlock(ParticleTypes.COPPER_FIRE_FLAME, p.overrideLootTable(COPPER_BONETORCH.get().getLootTable()).overrideDescription(COPPER_BONETORCH.get().getDescriptionId())), BlockBehaviour.Properties.ofLegacyCopy(Blocks.COPPER_TORCH));
+	public static final DeferredItem<StandingAndWallBlockItem> COPPER_BONETORCH_ITEM = ITEMS.registerItem("copper_bonetorch", p -> new StandingAndWallBlockItem(COPPER_BONETORCH.get(), WALL_COPPER_BONETORCH.get(), Direction.DOWN, p.useBlockDescriptionPrefix()));
 	public static final DeferredBlock<TorchBlock> SOUL_BONETORCH = BLOCKS.registerBlock("soul_bonetorch", p -> new TorchBlock(ParticleTypes.SOUL_FIRE_FLAME, p), BlockBehaviour.Properties.ofLegacyCopy(Blocks.SOUL_TORCH));
 	public static final DeferredBlock<WallTorchBlock> WALL_SOUL_BONETORCH = BLOCKS.registerBlock("wall_soul_bonetorch", p -> new WallTorchBlock(ParticleTypes.SOUL_FIRE_FLAME, p.overrideLootTable(SOUL_BONETORCH.get().getLootTable()).overrideDescription(SOUL_BONETORCH.get().getDescriptionId())), BlockBehaviour.Properties.ofLegacyCopy(Blocks.SOUL_TORCH));
 	public static final DeferredItem<StandingAndWallBlockItem> SOUL_BONETORCH_ITEM = ITEMS.registerItem("soul_bonetorch", p -> new StandingAndWallBlockItem(SOUL_BONETORCH.get(), WALL_SOUL_BONETORCH.get(), Direction.DOWN, p.useBlockDescriptionPrefix()));
@@ -53,6 +56,7 @@ public class BoneTorchMod
 		{
 			event.insertAfter(new ItemStack(Items.REDSTONE_TORCH), new ItemStack(BONETORCH_ITEM.get()), TabVisibility.PARENT_AND_SEARCH_TABS);
 			event.insertAfter(new ItemStack(BONETORCH_ITEM.get()), new ItemStack(SOUL_BONETORCH_ITEM.get()), TabVisibility.PARENT_AND_SEARCH_TABS);
+			event.insertAfter(new ItemStack(SOUL_BONETORCH_ITEM.get()), new ItemStack(COPPER_BONETORCH_ITEM.get()), TabVisibility.PARENT_AND_SEARCH_TABS);
 		}
 	}
 }

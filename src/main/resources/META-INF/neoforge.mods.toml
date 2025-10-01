@@ -1,7 +1,7 @@
 issueTrackerURL="https://github.com/BuiltBrokenModding/SBM-BoneTorch/issues"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/sbm-bone-torch"
 authors="BuiltBrokenModding"
-license="MIT License https://github.com/BuiltBrokenModding/SBM-BoneTorch/blob/1.21.6/LICENSE"
+license="MIT License https://github.com/BuiltBrokenModding/SBM-BoneTorch/blob/1.21.9/LICENSE"
 
 [[mods]]
 modId="bonetorch"
@@ -12,13 +12,13 @@ description='''Simple mod to create torches from bones'''
 [[dependencies.bonetorch]]
     modId="neoforge"
     type="required"
-    versionRange="[21.6.6-beta,)"
+    versionRange="[21.9.1-beta,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.bonetorch]]
     modId="minecraft"
     type="required"
-    versionRange="[1.21.6,1.22)"
+    versionRange="[1.21.9,1.22)"
     ordering="NONE"
     side="BOTH"

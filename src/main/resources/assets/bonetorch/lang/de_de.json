@@ -1,8 +1,11 @@
 {
-    "block.bonetorch.bonetorch": "Knochenfackel",
-    "block.bonetorch.soul_bonetorch": "Seelenknochenfackel",
-    "block.bonetorch.wall_bonetorch": "Knochenfackel",
-    "block.bonetorch.wall_soul_bonetorch": "Seelenknochenfackel",
-    "item.bonetorch.bone_torch_bandolier": "Knochenfackel-Gurt",
-    "item.bonetorch.soul_bone_torch_bandolier": "Seelenknochenfackel-Gurt"
+	"block.bonetorch.bonetorch": "Knochenfackel",
+	"block.bonetorch.copper_bonetorch": "Kupfer-Knochenfackel",
+    "block.bonetorch.soul_bonetorch": "Seelen-Knochenfackel",
+	"block.bonetorch.wall_bonetorch": "Knochenfackel",
+	"block.bonetorch.wall_copper_bonetorch": "Kupfer-Knochenfackel",
+    "block.bonetorch.wall_soul_bonetorch": "Seelen-Knochenfackel",
+	"item.bonetorch.bone_torch_bandolier": "Knochenfackel-Gurt",
+	"item.bonetorch.copper_bone_torch_bandolier": "Kupfer-Knochenfackel-Gurt",
+    "item.bonetorch.soul_bone_torch_bandolier": "Seelen-Knochenfackel-Gurt"
 }
