@@ -2,14 +2,14 @@ plugins {
     id 'java-library'
     id 'eclipse'
     id 'idea'
-	id 'net.neoforged.moddev' version '2.0.111'
+	id 'net.neoforged.moddev' version '2.0.123'
 }
 
 version = '1.0.4'
 group = 'bonetorch'
 
 base {
-	archivesName = 'SBM-BoneTorch-1.21.9'
+	archivesName = 'SBM-BoneTorch-1.21.11'
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
@@ -24,7 +24,7 @@ sourceSets.main.resources {
 }
 
 neoForge {
-	version = "21.9.6-beta"
+	version = "21.11.0-beta"
 
 	runs {
 		configureEach {
