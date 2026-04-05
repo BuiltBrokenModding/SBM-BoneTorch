@@ -2,17 +2,17 @@ plugins {
     id 'java-library'
     id 'eclipse'
     id 'idea'
-	id 'net.neoforged.moddev' version '2.0.123'
+	id 'net.neoforged.moddev' version '2.0.141'
 }
 
 version = '1.0.4'
 group = 'bonetorch'
 
 base {
-	archivesName = 'SBM-BoneTorch-1.21.11'
+	archivesName = 'SBM-BoneTorch-26.1.1'
 }
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+java.toolchain.languageVersion = JavaLanguageVersion.of(25)
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 
 processResources {
@@ -24,7 +24,7 @@ sourceSets.main.resources {
 }
 
 neoForge {
-	version = "21.11.0-beta"
+	version = "26.1.1.6-beta"
 
 	runs {
 		configureEach {
@@ -81,7 +81,7 @@ tasks.named('jar', Jar).configure {
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
-	options.release = 21
+	options.release = 25
 }
 
 idea {
