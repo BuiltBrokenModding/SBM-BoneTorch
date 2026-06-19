@@ -9,7 +9,7 @@ version = '1.0.4'
 group = 'bonetorch'
 
 base {
-	archivesName = 'SBM-BoneTorch-26.1.1'
+	archivesName = 'SBM-BoneTorch-26.2'
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(25)
@@ -24,7 +24,7 @@ sourceSets.main.resources {
 }
 
 neoForge {
-	version = "26.1.1.6-beta"
+	version = "26.2.0.6-beta"
 
 	runs {
 		configureEach {
