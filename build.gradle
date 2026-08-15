@@ -12,7 +12,12 @@ base {
 	archivesName = 'SBM-BoneTorch-26.2'
 }
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(25)
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(25)
+		vendor = JvmVendorSpec.MICROSOFT
+	}
+}
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 
 processResources {
